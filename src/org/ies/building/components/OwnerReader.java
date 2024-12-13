@@ -20,12 +20,12 @@ public class OwnerReader {
         String name = scanner.nextLine();
 
         System.out.print("Apellidos:");
-        String surnames = scanner.nextLine();
+        String surname = scanner.nextLine();
 
         return new Owner(
                 nif,
                 name,
-                surnames
+                surname
         );
     }
 }

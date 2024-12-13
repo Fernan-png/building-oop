@@ -5,12 +5,16 @@ import java.util.Objects;
 public class Owner {
     private String nif;
     private String name;
-    private String surnames;
+    private String surname;
 
-    public Owner(String nif, String name, String surnames) {
+    public Owner(String nif, String name, String surname) {
         this.nif = nif;
         this.name = name;
-        this.surnames = surnames;
+        this.surname = surname;
+    }
+
+    public void showInfo() {
+        System.out.println(surname + ", " + name + " (" + nif + ")");
     }
 
     public String getNif() {
@@ -29,12 +33,12 @@ public class Owner {
         this.name = name;
     }
 
-    public String getSurnames() {
-        return surnames;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurnames(String surnames) {
-        this.surnames = surnames;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Override
@@ -42,12 +46,12 @@ public class Owner {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Owner owner = (Owner) o;
-        return Objects.equals(nif, owner.nif) && Objects.equals(name, owner.name) && Objects.equals(surnames, owner.surnames);
+        return Objects.equals(nif, owner.nif) && Objects.equals(name, owner.name) && Objects.equals(surname, owner.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nif, name, surnames);
+        return Objects.hash(nif, name, surname);
     }
 
     @Override
@@ -55,7 +59,9 @@ public class Owner {
         return "Owner{" +
                 "nif='" + nif + '\'' +
                 ", name='" + name + '\'' +
-                ", surnames='" + surnames + '\'' +
+                ", surname='" + surname + '\'' +
                 '}';
     }
+
+
 }

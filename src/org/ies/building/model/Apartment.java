@@ -14,6 +14,13 @@ public class Apartment {
         this.owners = owners;
     }
 
+    public void showInfo() {
+        System.out.println("Apartamento " + floor + door + ". Propietarios:");
+        for (var owner : owners) {
+            owner.showInfo();
+        }
+    }
+
     public int getFloor() {
         return floor;
     }
@@ -59,4 +66,6 @@ public class Apartment {
                 ", owners=" + Arrays.toString(owners) +
                 '}';
     }
+
+
 }

@@ -14,6 +14,22 @@ public class Building {
         this.apartments = apartments;
     }
 
+    public Apartment findApartment(int floor, String door) {
+        for (var apartment : apartments) {
+            if (apartment.getFloor() == floor && apartment.getDoor().equals(door)) {
+                return apartment;
+            }
+        } return null;
+    }
+
+    public void showFloorApartments(int floor) {
+        for (var apartment : apartments) {
+            if (apartment.getFloor() == floor ) {
+                apartment.showInfo();
+            }
+        }
+    }
+
     public String getAddress() {
         return address;
     }

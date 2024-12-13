@@ -32,7 +32,7 @@ public class BuildingReader {
                 address,
                 city,
                 apartments
-                );
+        );
     }
 
     private int readNumApartments() {
