@@ -17,7 +17,7 @@ public class ApartmentReader {
     public Apartment read() {
         System.out.println("Introduce los datos del apartamento:");
         System.out.print("¿Cuál es la planta del piso?:");
-        int flat = scanner.nextInt();
+        int floor = scanner.nextInt();
         scanner.nextLine();
 
         System.out.print("¿Cuál es la puerta?");
@@ -31,7 +31,7 @@ public class ApartmentReader {
         }
 
         return new Apartment(
-                flat,
+                floor,
                 door,
                 owners
         );

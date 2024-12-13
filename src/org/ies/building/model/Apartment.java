@@ -4,22 +4,22 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Apartment {
-    private int plant;
+    private int floor;
     private String door;
     private Owner[] owners;
 
-    public Apartment(int plant, String door, Owner[] owners) {
-        this.plant = plant;
+    public Apartment(int floor, String door, Owner[] owners) {
+        this.floor = floor;
         this.door = door;
         this.owners = owners;
     }
 
-    public int getPlant() {
-        return plant;
+    public int getFloor() {
+        return floor;
     }
 
-    public void setPlant(int plant) {
-        this.plant = plant;
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 
     public String getDoor() {
@@ -43,18 +43,18 @@ public class Apartment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Apartment apartment = (Apartment) o;
-        return plant == apartment.plant && Objects.equals(door, apartment.door) && Objects.deepEquals(owners, apartment.owners);
+        return floor == apartment.floor && Objects.equals(door, apartment.door) && Objects.deepEquals(owners, apartment.owners);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(plant, door, Arrays.hashCode(owners));
+        return Objects.hash(floor, door, Arrays.hashCode(owners));
     }
 
     @Override
     public String toString() {
         return "Apartment{" +
-                "plant=" + plant +
+                "floor=" + floor +
                 ", door='" + door + '\'' +
                 ", owners=" + Arrays.toString(owners) +
                 '}';
