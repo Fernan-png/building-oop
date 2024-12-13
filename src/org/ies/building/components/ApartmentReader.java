@@ -16,26 +16,37 @@ public class ApartmentReader {
 
     public Apartment read() {
         System.out.println("Introduce los datos del apartamento:");
-        System.out.println("Planta:");
-        String plant = scanner.nextLine();
-
-        System.out.println("Nº Puerta:");
-        String door = scanner.nextLine();
-
-        System.out.println("¿Cuantos propietarios hay en el apartamento?");
-        int numOwners = scanner.nextInt();
+        System.out.print("¿Cuál es la planta del piso?:");
+        int flat = scanner.nextInt();
         scanner.nextLine();
 
-        Owner[] owners = new Owner[numOwners];
+        System.out.print("¿Cuál es la puerta?");
+        String door = scanner.nextLine();
 
-        for (int i = 0; i < owners.length ; i++) {
+        int howManyOwners = askOwners();
+
+        Owner[] owners = new Owner[howManyOwners];
+        for (int i = 0; i < howManyOwners; i++) {
             owners[i] = ownerReader.read();
         }
 
         return new Apartment(
-                plant,
+                flat,
                 door,
                 owners
         );
+    }
+
+    private int askOwners() {
+        int owners;
+        do {
+            System.out.println("Cuántos propiertarios hay: ");
+            owners = scanner.nextInt();
+            scanner.nextLine();
+            if (owners < 1) {
+                System.out.println("El piso debe tener al menos un propietario");
+            }
+        } while (owners < 1);
+        return askOwners();
     }
 }

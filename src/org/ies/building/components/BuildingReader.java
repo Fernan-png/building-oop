@@ -16,26 +16,32 @@ public class BuildingReader {
 
     public Building read() {
         System.out.println("Introduce los datos del edificio");
-        System.out.println("Dirección:");
+        System.out.print("Dirección: ");
         String address = scanner.nextLine();
 
         System.out.println("Municipio:");
-        String municipality = scanner.nextLine();
+        String city = scanner.nextLine();
 
-        System.out.println("¿Cuantos apartamentos hay?");
-        int numApartments = scanner.nextInt();
-        scanner.nextLine();
-
+        int numApartments = readNumApartments();
         Apartment[] apartments = new Apartment[numApartments];
-
         for (int i = 0; i < apartments.length; i++) {
             apartments[i] = apartmentReader.read();
         }
 
         return new Building(
                 address,
-                municipality,
+                city,
                 apartments
                 );
+    }
+
+    private int readNumApartments() {
+        int size;
+        do {
+            System.out.println("Cuántos apartamentos hay: ");
+            size = scanner.nextInt();
+            scanner.nextLine();
+        } while (size < 0);
+        return size;
     }
 }

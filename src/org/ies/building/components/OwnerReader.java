@@ -13,13 +13,13 @@ public class OwnerReader {
 
     public Owner read() {
         System.out.println("Introduce los datos del propietario:");
-        System.out.println("NIF:");
+        System.out.print("NIF:");
         String nif = scanner.nextLine();
 
-        System.out.println("Nombre:");
+        System.out.print("Nombre:");
         String name = scanner.nextLine();
 
-        System.out.println("Apellidos:");
+        System.out.print("Apellidos:");
         String surnames = scanner.nextLine();
 
         return new Owner(
