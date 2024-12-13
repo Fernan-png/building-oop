@@ -19,14 +19,24 @@ public class Building {
             if (apartment.getFloor() == floor && apartment.getDoor().equals(door)) {
                 return apartment;
             }
-        } return null;
+        }
+        return null;
     }
 
     public void showFloorApartments(int floor) {
         for (var apartment : apartments) {
-            if (apartment.getFloor() == floor ) {
+            if (apartment.getFloor() == floor) {
                 apartment.showInfo();
             }
+        }
+    }
+
+    public Owner[] findApartmentOwners(int floor, String door) {
+        var apartment = findApartment(floor, door);
+        if (apartment == null) {
+            return null;
+        } else {
+            return apartment.getOwners();
         }
     }
 
